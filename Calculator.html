@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            list-style: none;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+
+        }
+        body{
+            background-color: lightblue;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            background-color:white;
+
+        }
+        .btnlist{
+         display: flex;
+         margin: 0px;
+         padding: 0px;
+         gap: 20px;
+        }
+        button{
+            width: 35px;
+            height: 45px;
+            margin: 5px;
+            background-color: gray;
+            padding: 5px;
+
+        }
+        .calScreen{
+            background-color: rgb(43 43 43);
+            padding: 15px;
+        }
+        .input{
+            background-color: gray;
+            border: none;
+            outline: none;
+            width: 97%;
+            padding: 3px 3px;
+            color: black;
+        }
+        .calBtn{
+            padding: 12px;
+        }
+        .special{
+            justify-content: space-between;
+        }
+        .btn{
+            width: 100%;
+        }
+        .btnAllclear{
+            width: 123%;
+            background: orange;
+
+        }
+    </style>
+    </head>
+    <body>
+        <section>
+            <div class="box">
+                <div class="calScreen">
+                    <input type="text" placeholder="00" name id="screen">
+                </div>
+                <div class="calBtn">
+                    <ul class="btnlist special">
+                        <li>
+                            <button class="btnAllclear btn"
+                                onclick="AC()">AC</button>
+                        </li>
+                        <li>
+                            <button class="btnback btn"
+                                onclick="btnback()">Backspace</button>
+                        </li>
+                    </ul>
+                    <ul class="btnlist">
+                        <li>
+                            <button onclick="getVal(innerText)">7</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">8</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">9</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">%</button>
+                        </li>
+
+                    </ul>
+                    <ul class="btnlist">
+                        <li>
+                            <button onclick="getVal(innerText)">4</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">5</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">6</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">*</button>
+                        </li>
+                    </ul>
+                    <ul class="btnlist">
+                        <li>
+                            <button onclick="getVal(innerText)">3</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">2</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">1</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">-</button>
+                        </li>
+
+                    </ul>
+                    <ul class="btnlist">
+                        <li>
+                            <button onclick="getVal(innerText)">0</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">.</button>
+                        </li>
+                        <li>
+                            <button onclick="getVal(innerText)">+</button>
+                        </li>
+                        <li>
+                            <button onclick="cal()">=</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <script>
+        function getVal(_val){
+          document.getElementById('screen').value += _val
+        }
+        function cal(){
+          let inputVal = document.getElementById('screen').value
+          document.getElementById('screen').value = eval(inputVal)
+        }
+        function AC(){
+            document.getElementById('screen').value = ''
+
+        }
+        function btnback(){
+            let inputVal = document.getElementById('screen').value
+            document.getElementById('screen').value = inputVal.slice(0 ,-1)
+
+        }
+    </script>
+    </body>
+</html>
